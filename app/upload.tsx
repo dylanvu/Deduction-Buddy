@@ -1,6 +1,6 @@
 // view records
 import React, { useState } from 'react';
-import { Text, View, StyleSheet, Touchable, TextInput } from "react-native";
+import { Text, View, StyleSheet, Button, TextInput } from "react-native";
 import { Link } from "expo-router";
 import AppLayout from "@/components/AppLayout";
 
@@ -96,6 +96,7 @@ export default function UploadScreen() {
         </Row>
 
       </Col>
+      <Button title='Submit'/>
     </AppLayout>
   );
 }
