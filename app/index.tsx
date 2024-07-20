@@ -1,5 +1,6 @@
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, Button, Pressable } from "react-native";
 import Header from "@/components/Header";
+import { Link } from "expo-router";
 
 export default function Index() {
   return (
@@ -14,15 +15,27 @@ export default function Index() {
         {/* the individual cards/buttons for navigation */}
         <Row>
           <Col>
-            <Text>Learn about tax</Text>
+            <Link href="/info" asChild>
+              <Pressable>
+                <Text>Learn about tax</Text>
+              </Pressable>
+            </Link>
           </Col>
           <Col>
-            <Text>Upload Sales Tax</Text>
+            <Link href="/upload" asChild>
+              <Pressable>
+                <Text>Upload Sales Tax</Text>
+              </Pressable>
+            </Link>
           </Col>
         </Row>
         <Row>
           <Col>
-            <Text>View Records</Text>
+            <Link href="/view" asChild>
+              <Pressable>
+                <Text>View Records</Text>
+              </Pressable>
+            </Link>
           </Col>
         </Row>
       </View>
