@@ -1,6 +1,13 @@
 import { Link } from "expo-router";
 import React from "react";
 import { View, Text, StyleSheet, Pressable } from "react-native";
+import {
+  Ionicons,
+  MaterialCommunityIcons,
+  Feather,
+  Octicons,
+} from "@expo/vector-icons";
+import { Colors } from "@/constants/Colors";
 
 const Footer = () => {
   return (
@@ -9,28 +16,40 @@ const Footer = () => {
         <View style={styles.footerColumn}>
           <Link href="/" asChild>
             <Pressable>
-              <Text>Home</Text>
+              <Octicons name="home" size={29} color={Colors.white} />
             </Pressable>
           </Link>
         </View>
         <View style={styles.footerColumn}>
           <Link href="/upload" asChild>
             <Pressable>
-              <Text>Upload</Text>
+              <Ionicons
+                name="information-circle-outline"
+                size={29}
+                color={Colors.white}
+              />
             </Pressable>
           </Link>
         </View>
         <View style={styles.footerColumn}>
           <Link href="/view" asChild>
             <Pressable>
-              <Text>Record</Text>
+              <MaterialCommunityIcons
+                name="clipboard-text-outline"
+                size={29}
+                color={Colors.white}
+              />
             </Pressable>
           </Link>
         </View>
         <View style={styles.footerColumn}>
           <Link href="/info" asChild>
             <Pressable>
-              <Text>Info</Text>
+              <Ionicons
+                name="information-circle-outline"
+                size={29}
+                color={Colors.white}
+              />
             </Pressable>
           </Link>
         </View>
@@ -48,11 +67,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     padding: 10,
-    paddingTop: 20,
-    paddingBottom: 40,
-    backgroundColor: "#fff",
-    borderTopWidth: 1,
-    borderTopColor: "#ccc",
+    backgroundColor: Colors.darkBlue,
+    height: 77,
   },
   footerColumn: {
     flex: 1,

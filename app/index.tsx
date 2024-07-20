@@ -1,6 +1,8 @@
 import { Text, View, StyleSheet, Pressable } from "react-native";
 import { Link } from "expo-router";
 import AppLayout from "@/components/AppLayout";
+import { Ionicons, MaterialCommunityIcons, Feather } from "@expo/vector-icons";
+import { Colors } from "@/constants/Colors";
 
 export default function Index() {
   return (
@@ -14,14 +16,24 @@ export default function Index() {
       <Row>
         <Col>
           <Link href="/info" asChild>
-            <Pressable>
-              <Text>Learn about tax</Text>
+            <Pressable
+              style={{ alignItems: "center", justifyContent: "center" }}
+            >
+              <Ionicons
+                name="information-circle-outline"
+                size={88}
+                color={Colors.darkBlue}
+              />
+              <Text>Learn about sales tax</Text>
             </Pressable>
           </Link>
         </Col>
         <Col>
           <Link href="/upload" asChild>
-            <Pressable>
+            <Pressable
+              style={{ alignItems: "center", justifyContent: "center" }}
+            >
+              <Feather name="upload" size={88} color={Colors.darkBlue} />
               <Text>Upload Sales Tax</Text>
             </Pressable>
           </Link>
@@ -30,7 +42,14 @@ export default function Index() {
       <Row>
         <Col>
           <Link href="/view" asChild>
-            <Pressable>
+            <Pressable
+              style={{ alignItems: "center", justifyContent: "center" }}
+            >
+              <MaterialCommunityIcons
+                name="clipboard-text-outline"
+                size={88}
+                color={Colors.darkBlue}
+              />
               <Text>View Records</Text>
             </Pressable>
           </Link>

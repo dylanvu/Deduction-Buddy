@@ -1,12 +1,18 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { Colors } from "@/constants/Colors";
 
 const Header = () => {
   return (
     <View style={styles.container}>
       <View style={styles.row}>
         <Text style={styles.leftItem}>Logo</Text>
-        <Text style={styles.rightItem}>Account Icon</Text>
+        <MaterialCommunityIcons
+          name="account-circle-outline"
+          size={35}
+          color={Colors.darkBlue}
+        />
       </View>
     </View>
   );

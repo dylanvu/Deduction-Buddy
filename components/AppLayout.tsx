@@ -1,5 +1,4 @@
 import { View } from "react-native";
-import Header from "./Header";
 import Footer from "@/components/Footer";
 
 function AppLayout({ children }: { children: React.ReactNode }) {
