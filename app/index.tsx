@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, Button, Pressable } from "react-native";
+import { Text, View, StyleSheet, Pressable } from "react-native";
 import Header from "@/components/Header";
 import { Link } from "expo-router";
 
@@ -6,12 +6,7 @@ export default function Index() {
   return (
     <View>
       <Header />
-      <View
-        style={{
-          flex: 2,
-          marginHorizontal: "auto",
-        }}
-      >
+      <View>
         {/* the individual cards/buttons for navigation */}
         <Row>
           <Col>
