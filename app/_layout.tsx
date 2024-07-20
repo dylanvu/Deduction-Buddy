@@ -25,7 +25,7 @@ export default function RootLayout() {
       <Stack.Screen
         name="view"
         options={{
-          title: "View Sales Tax",
+          title: "View Records",
         }}
       />
       <Stack.Screen
