@@ -7,10 +7,14 @@ import { Colors } from "@/constants/Colors";
 export default function Index() {
   return (
     <AppLayout>
-      <View style={styles.deductionContainer}>
-        <Text>Tax Deduction Amount:</Text>
-        <Text>$1,000</Text>
-        <Text>Sales Tax Total: $1,000</Text>
+      <View style={[styles.deductionContainer, styles.shadow]}>
+        <View>
+          <View style={styles.deductionContent}>
+            <Text>Tax Deduction Amount:</Text>
+            <Text>$1,000</Text>
+            <Text>Sales Tax Total: $1,000</Text>
+          </View>
+        </View>
       </View>
       {/* the individual cards/buttons for navigation */}
       <View style={styles.buttonsContainer}>
@@ -102,10 +106,22 @@ const styles = StyleSheet.create({
     borderColor: Colors.darkBlue,
   },
   deductionContainer: {
-    padding: 10,
-    borderBottomLeftRadius: 16,
-    borderBottomRightRadius: 16,
+    // padding: 10,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
     backgroundColor: Colors.lightBlue,
+  },
+  shadow: {
+    shadowColor: Colors.darkBlue,
+    shadowOffset: {
+      width: 0,
+      height: 10,
+    },
+    shadowOpacity: 0.7,
+    shadowRadius: 20,
+  },
+  deductionContent: {
+    padding: 10,
   },
   buttonText: {
     alignItems: "center",
