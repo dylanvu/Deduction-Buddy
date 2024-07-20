@@ -1,40 +1,42 @@
 import { Text, View, StyleSheet, Pressable } from "react-native";
-import Header from "@/components/Header";
 import { Link } from "expo-router";
+import AppLayout from "@/components/AppLayout";
 
 export default function Index() {
   return (
-    <View>
-      <Header />
-      <View>
-        {/* the individual cards/buttons for navigation */}
-        <Row>
-          <Col>
-            <Link href="/info" asChild>
-              <Pressable>
-                <Text>Learn about tax</Text>
-              </Pressable>
-            </Link>
-          </Col>
-          <Col>
-            <Link href="/upload" asChild>
-              <Pressable>
-                <Text>Upload Sales Tax</Text>
-              </Pressable>
-            </Link>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <Link href="/view" asChild>
-              <Pressable>
-                <Text>View Records</Text>
-              </Pressable>
-            </Link>
-          </Col>
-        </Row>
+    <AppLayout>
+      <View style={styles.deductionContainer}>
+        <Text>Tax Deduction Amount:</Text>
+        <Text>$1,000</Text>
+        <Text>Sales Tax Total: $1,000</Text>
       </View>
-    </View>
+      {/* the individual cards/buttons for navigation */}
+      <Row>
+        <Col>
+          <Link href="/info" asChild>
+            <Pressable>
+              <Text>Learn about tax</Text>
+            </Pressable>
+          </Link>
+        </Col>
+        <Col>
+          <Link href="/upload" asChild>
+            <Pressable>
+              <Text>Upload Sales Tax</Text>
+            </Pressable>
+          </Link>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <Link href="/view" asChild>
+            <Pressable>
+              <Text>View Records</Text>
+            </Pressable>
+          </Link>
+        </Col>
+      </Row>
+    </AppLayout>
   );
 }
 
@@ -57,5 +59,8 @@ const styles = StyleSheet.create({
     flex: 2,
     padding: 10,
     margin: 10,
+  },
+  deductionContainer: {
+    padding: 10,
   },
 });

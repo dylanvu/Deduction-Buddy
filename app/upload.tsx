@@ -1,11 +1,10 @@
 // view records
 import { Text, View, StyleSheet } from "react-native";
-import Header from "@/components/Header";
+import AppLayout from "@/components/AppLayout";
 
-export default function Index() {
+export default function UploadScreen() {
   return (
-    <View>
-      <Header />
+    <AppLayout>
       <View
         style={{
           flex: 1,
@@ -13,8 +12,8 @@ export default function Index() {
           alignItems: "center",
         }}
       >
-        <Text>Homepage</Text>
+        <Text>Upload</Text>
       </View>
-    </View>
+    </AppLayout>
   );
 }
