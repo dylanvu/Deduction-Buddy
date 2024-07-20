@@ -5,7 +5,6 @@ import Footer from "@/components/Footer";
 function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <View style={{ flex: 1 }}>
-      <Header />
       {children}
       <Footer />
     </View>

@@ -1,21 +1,38 @@
+import { Link } from "expo-router";
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Pressable } from "react-native";
 
 const Footer = () => {
   return (
     <View style={styles.container}>
       <View style={styles.footer}>
         <View style={styles.footerColumn}>
-          <Text style={styles.footerText}>Column 1</Text>
+          <Link href="/" asChild>
+            <Pressable>
+              <Text>Home</Text>
+            </Pressable>
+          </Link>
         </View>
         <View style={styles.footerColumn}>
-          <Text style={styles.footerText}>Column 2</Text>
+          <Link href="/upload" asChild>
+            <Pressable>
+              <Text>Upload</Text>
+            </Pressable>
+          </Link>
         </View>
         <View style={styles.footerColumn}>
-          <Text style={styles.footerText}>Column 3</Text>
+          <Link href="/view" asChild>
+            <Pressable>
+              <Text>Record</Text>
+            </Pressable>
+          </Link>
         </View>
         <View style={styles.footerColumn}>
-          <Text style={styles.footerText}>Column 4</Text>
+          <Link href="/info" asChild>
+            <Pressable>
+              <Text>Info</Text>
+            </Pressable>
+          </Link>
         </View>
       </View>
     </View>
@@ -31,6 +48,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     padding: 10,
+    paddingTop: 20,
+    paddingBottom: 40,
     backgroundColor: "#fff",
     borderTopWidth: 1,
     borderTopColor: "#ccc",

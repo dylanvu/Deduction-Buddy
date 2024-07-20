@@ -5,8 +5,8 @@ const Header = () => {
   return (
     <View style={styles.container}>
       <View style={styles.row}>
-        <Text style={styles.leftItem}>Left Item</Text>
-        <Text style={styles.rightItem}>Right Item</Text>
+        <Text style={styles.leftItem}>Logo</Text>
+        <Text style={styles.rightItem}>Account Icon</Text>
       </View>
     </View>
   );
@@ -14,14 +14,17 @@ const Header = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     justifyContent: "center",
+    paddingTop: 80,
   },
   row: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
     width: "100%",
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingBottom: 20,
   },
   leftItem: {},
   rightItem: {},
