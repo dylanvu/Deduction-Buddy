@@ -13,48 +13,68 @@ export default function Index() {
         <Text>Sales Tax Total: $1,000</Text>
       </View>
       {/* the individual cards/buttons for navigation */}
-      <Row>
-        <Col>
-          <Link href="/info" asChild>
-            <Pressable
-              style={{ alignItems: "center", justifyContent: "center" }}
-            >
-              <Ionicons
-                name="information-circle-outline"
-                size={88}
-                color={Colors.darkBlue}
-              />
-              <Text>Learn about sales tax</Text>
-            </Pressable>
-          </Link>
-        </Col>
-        <Col>
-          <Link href="/upload" asChild>
-            <Pressable
-              style={{ alignItems: "center", justifyContent: "center" }}
-            >
-              <Feather name="upload" size={88} color={Colors.darkBlue} />
-              <Text>Upload Sales Tax</Text>
-            </Pressable>
-          </Link>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <Link href="/view" asChild>
-            <Pressable
-              style={{ alignItems: "center", justifyContent: "center" }}
-            >
-              <MaterialCommunityIcons
-                name="clipboard-text-outline"
-                size={88}
-                color={Colors.darkBlue}
-              />
-              <Text>View Records</Text>
-            </Pressable>
-          </Link>
-        </Col>
-      </Row>
+      <View style={styles.buttonsContainer}>
+        <Row>
+          <Col>
+            <Link href="/info" asChild>
+              <Pressable style={styles.buttonText}>
+                <Ionicons
+                  name="information-circle-outline"
+                  size={88}
+                  color={Colors.darkBlue}
+                />
+                <Text
+                  style={{
+                    textAlign: "center",
+                    marginLeft: 12,
+                    marginRight: 12,
+                  }}
+                >
+                  Learn about sales tax
+                </Text>
+              </Pressable>
+            </Link>
+          </Col>
+          <Col>
+            <Link href="/upload" asChild>
+              <Pressable style={styles.buttonText}>
+                <Feather name="upload" size={88} color={Colors.darkBlue} />
+                <Text
+                  style={{
+                    textAlign: "center",
+                    marginLeft: 12,
+                    marginRight: 12,
+                  }}
+                >
+                  Upload your receipt
+                </Text>
+              </Pressable>
+            </Link>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Link href="/view" asChild>
+              <Pressable style={styles.buttonText}>
+                <MaterialCommunityIcons
+                  name="clipboard-text-outline"
+                  size={88}
+                  color={Colors.darkBlue}
+                />
+                <Text
+                  style={{
+                    textAlign: "center",
+                    marginLeft: 12,
+                    marginRight: 12,
+                  }}
+                >
+                  View past receipts
+                </Text>
+              </Pressable>
+            </Link>
+          </Col>
+        </Row>
+      </View>
     </AppLayout>
   );
 }
@@ -74,12 +94,22 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   "2col": {
-    borderWidth: 1,
+    borderWidth: 2,
     flex: 2,
     padding: 10,
     margin: 10,
+    borderRadius: 15,
+    borderColor: Colors.darkBlue,
   },
   deductionContainer: {
     padding: 10,
+  },
+  buttonText: {
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  buttonsContainer: {
+    marginLeft: 16,
+    marginRight: 16,
   },
 });
