@@ -103,6 +103,9 @@ const styles = StyleSheet.create({
   },
   deductionContainer: {
     padding: 10,
+    borderBottomLeftRadius: 16,
+    borderBottomRightRadius: 16,
+    backgroundColor: Colors.lightBlue,
   },
   buttonText: {
     alignItems: "center",
@@ -111,5 +114,6 @@ const styles = StyleSheet.create({
   buttonsContainer: {
     marginLeft: 16,
     marginRight: 16,
+    marginTop: 40,
   },
 });
