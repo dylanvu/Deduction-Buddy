@@ -106,19 +106,20 @@ const styles = StyleSheet.create({
     borderColor: Colors.darkBlue,
   },
   deductionContainer: {
-    // padding: 10,
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
     backgroundColor: Colors.lightBlue,
+    borderTopWidth: 7,
+    borderTopColor: Colors.darkBlue,
   },
   shadow: {
     shadowColor: Colors.darkBlue,
     shadowOffset: {
       width: 0,
-      height: 10,
+      height: 4,
     },
     shadowOpacity: 0.7,
-    shadowRadius: 20,
+    shadowRadius: 5,
   },
   deductionContent: {
     padding: 10,
