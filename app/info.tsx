@@ -13,25 +13,31 @@ export default function InfoScreen() {
       {/*Sales vs Income Tax*/}
       <Text style={styles.title}>Sales vs. Income Tax</Text>
       <Row>
-        <Text style  = {styles.paragraph}>
-          idk
-        </Text>
+        <Col>
+          <Text style  = {styles.paragraph}>
+            idk
+          </Text>
+        </Col>
       </Row>
 
       {/*Sales Tax Deduction*/}
       <Text style={styles.title}>Sales Tax Deduction</Text>
       <Row>
-        <Text style  = {styles.paragraph}>
-          idk
-        </Text>
+        <Col>
+          <Text style  = {styles.paragraph}>
+            idk
+          </Text>
+        </Col>
       </Row>
 
       {/*Items That Counts Towards Sales Tax*/}
       <Text style = {styles.title}>Accepted Items</Text>
       <Row>
-        <Text style  = {styles.paragraph}>
-          idk
-        </Text>
+        <Col>
+          <Text style  = {styles.paragraph}>
+            idk
+          </Text>
+        </Col>
       </Row>
 
       {/*Sales Tax on a Receipt*/}
@@ -70,21 +76,21 @@ const Col = ({ children }: { children: React.ReactNode }) => {
 const styles = StyleSheet.create({
   row: {
     flexDirection: "row",
+    paddingHorizontal: 16,
+    
   },
   "2col": {
-    borderWidth: 1,
     flex: 2,
-    padding: 10,
+    borderWidth: 1,
     margin: 10,
+    borderColor: "#d3d3d3",
+ 
   },
+
   centeredView: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  col: {
-    flex: 1,
-    paddingHorizontal: 16,
   },
   header: {
     fontSize: 24
@@ -93,10 +99,12 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     marginTop: 16,
+    paddingHorizontal: 24
   },
   paragraph: {
     fontSize: 16,
     marginTop: 8,
+    paddingHorizontal: 40
   },
   image: {
     width: '100%',
