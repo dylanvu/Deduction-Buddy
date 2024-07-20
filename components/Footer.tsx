@@ -23,11 +23,7 @@ const Footer = () => {
         <View style={styles.footerColumn}>
           <Link href="/upload" asChild>
             <Pressable>
-              <Ionicons
-                name="information-circle-outline"
-                size={29}
-                color={Colors.white}
-              />
+              <Feather name="upload" size={29} color={Colors.white} />
             </Pressable>
           </Link>
         </View>
@@ -66,7 +62,7 @@ const styles = StyleSheet.create({
   footer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    padding: 10,
+    alignItems: "center",
     backgroundColor: Colors.darkBlue,
     height: 77,
   },
