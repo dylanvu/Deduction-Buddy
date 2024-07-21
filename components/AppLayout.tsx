@@ -15,8 +15,6 @@ const styles = StyleSheet.create({
   layout: {
     flex: 1,
     backgroundColor: Colors.white,
-    // paddingTop: 80,
-    // maxWidth: 300,
   },
 });
 
