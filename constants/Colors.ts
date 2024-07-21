@@ -28,4 +28,7 @@ export const Colors = {
   green: "#669954",
   black: "#282826",
   darkBlue: "#457B9D",
+  whiteForFont: "#EFEFEF",
+  blueBackgroundForText: "#D2ECED",
+  inBetweenBlue: "#5E98BC",
 };
