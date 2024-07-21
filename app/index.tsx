@@ -4,13 +4,13 @@ import AppLayout from "@/components/AppLayout";
 import { Colors } from "@/constants/Colors";
 import { Fonts } from "@/constants/Fonts";
 import { useEffect, useState } from "react";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import { getItem } from '@/utils/AsyncStorage';
 
 export default function Index() {
   const [salesTaxTotal, setSalesTaxTotal] = useState(0);
   async function getSalesTotal() {
     try {
-      const value = await AsyncStorage.getItem("tax-total");
+      const value = await getItem("total-tax");
       if (value !== null) {
         // value previously stored
         // parse the value to a number

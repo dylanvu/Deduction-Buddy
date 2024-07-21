@@ -31,13 +31,19 @@ export default function InfoScreen() {
           </Text>
         </Row>
       </View>
-      <Col>
-        <Row>
-          <Text style  = {[Fonts.body, {paddingBottom: 10}]}>
-            idk
-          </Text>
-        </Row>
 
+      <Col>
+          <View style={styles.text}>
+            <Text style  = {[Fonts.body, {paddingBottom: 7}]}>
+              Sales tax is calculated as the percentage of the price of the purchased 
+              good and services. It varies by jurdiction and items, and it tends to 
+              impact lower-income individual more.
+            </Text>
+            <Text style  = {Fonts.body}>
+              Income tax is calculated as a percentage of income earned. It involves 
+              filing an annual tax return, and the rates tends to increase with income.
+            </Text>
+          </View>
       </Col>
 
       {/*Sales Tax Deduction*/}
@@ -50,12 +56,16 @@ export default function InfoScreen() {
       </View>
 
       <Col>
-        <Row>
-          <Text style  = {[Fonts.body, {paddingBottom: 10}]}>
-            idkkjkljfkasjfkljdsa;j fkdsa dfakfwejfkajek; ajf dfaj ksdf we jfle;f dkjaf;wefjkjsflkdj fa iweohfcmx,andajfhfhuewh fiejf ewfk dsf
-            fdsafkdshjfkhawehf j dksafj;
+        <View style={styles.text}>
+          <Text style  = {[Fonts.body]}>
+            General Rule: if the amount you paid in sales taxes is greater than
+            your state and local income taxes, deduct sales tax instead of state 
+            and local income taxes in your annual tax return (you CAN'T use both). 
+            It is beneficial for those living in states with no state income or 
+            for those who made significant purchases throughout the year.
+            
           </Text>
-        </Row>
+        </View>
       </Col>
 
       {/*Items That Counts Towards Sales Tax*/}
@@ -68,11 +78,14 @@ export default function InfoScreen() {
       </View>
 
       <Col>
-        <Row>
-          <Text style  = {[Fonts.body, {paddingBottom: 10}]}>
-            idk
+        <View style={styles.text}>
+          <Text style  = {[Fonts.body]}>
+            Goods purchased for personal use, excluding groceries if it is 
+            not subjected to sales tax. Large purchases such as vehicles and
+            home renovation and building supplies. Services that were s
+            ubjected to sales tax.
           </Text>
-        </Row>
+        </View>
       </Col>
 
       {/*Sales Tax on a Receipt*/}
@@ -83,20 +96,21 @@ export default function InfoScreen() {
           </Text>
         </Row>
       </View>
+
       <Col>
-        <Row>
-          <Col>
-            <Text style  = {[Fonts.body, {paddingBottom: 10}]}>
-              idk
+        <View style={styles.text}>
+          <View style = {{paddingRight: "50%"}}>
+            <Text style  = {Fonts.body}>
+              Sales Tax can be found at the bottom of receipts. 
             </Text>
-          </Col>
-          <Col>
+          </View>
+          <View style = {{paddingLeft: "50%"}}>
             <Image
               source={{uri:''}} //image path
-              style={styles.image}
-            />
-          </Col>
-        </Row>
+              style={styles.image}/>
+          </View>
+
+        </View>
       </Col>
 
     </AppLayout>
@@ -117,14 +131,16 @@ const Col = ({ children }: { children: React.ReactNode }) => {
 const styles = StyleSheet.create({
   row: {
     flexDirection: "row",
-    paddingHorizontal: 16,
+    flex: 1,
+    paddingHorizontal: 14,
     paddingTop: 10,
   },
   "2col": {
     flexDirection:"column",
     borderWidth: 3,
     borderColor: Colors.blueBackgroundForText,
-    backgroundColor: Colors.blueBackgroundForText
+    backgroundColor: Colors.blueBackgroundForText,
+    paddingVertical: 14,
   },
   titleContainer: {
     borderBottomLeftRadius: 20,
@@ -132,7 +148,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.inBetweenBlue,
     borderTopWidth: 7,
     borderTopColor: Colors.inBetweenBlue,
-    padding: 20,
+    padding: 15,
   },
   centeredView: {
     flex: 1,
@@ -143,5 +159,9 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 100,
     marginTop: 16,
+  },
+  text:{
+    flex:2, 
+    paddingHorizontal: 14
   }
 });

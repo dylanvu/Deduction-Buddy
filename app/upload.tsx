@@ -10,6 +10,7 @@ import { setItem, getItem } from '@/utils/AsyncStorage';
 
 export default function UploadScreen() {
   const [info, setInfo] = useState({
+    id: 0,
     description: '',
     amount: '',
     month: '',
@@ -81,6 +82,7 @@ export default function UploadScreen() {
 
   const clearInfo = () => {
     setInfo({
+      id: 0,
       description: '',
       amount: '',
       month: '',
@@ -99,8 +101,26 @@ export default function UploadScreen() {
       totalTax = parseFloat(totalTax);
       let newTax = parseFloat(info.tax);
       totalTax = totalTax + newTax;
+      setItem("total-tax", totalTax);
     }
-    setItem("total-tax", totalTax);
+    else {
+      setItem("total-tax", info.tax);
+    }
+
+    let storedReceipts = await getItem("stored-receipts");
+    if (storedReceipts) {
+      let newId = storedReceipts.at(-1).id + 1;
+      let newInfo = info;
+      newInfo.id = newId;
+      
+      setInfo(newInfo);
+      
+      storedReceipts.push(info);
+      setItem("stored-receipts", storedReceipts);
+    }
+    else {
+      setItem("stored-receipts", [info]);
+    }
 
     clearInfo();
   };
