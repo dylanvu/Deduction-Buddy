@@ -31,4 +31,5 @@ export const Colors = {
   whiteForFont: "#EFEFEF",
   blueBackgroundForText: "#D2ECED",
   inBetweenBlue: "#5E98BC",
+  lighterBlue: "#D2ECED"
 };

@@ -10,9 +10,9 @@ export default function InfoScreen() {
     <AppLayout>
 
       {/*title of page*/}
-      <View style={styles.deductionContainer}>
+      <View style={styles.titleContainer}>
         <View>
-          <View style={[styles.deductionContent, styles.centeredView]}>
+          <View style={[styles.titleContent, styles.centeredView]}>
               <Text style={[Fonts.header, {color: Colors.white }]}>
                 General Sales Taxes
               </Text>
@@ -37,6 +37,7 @@ export default function InfoScreen() {
             idk
           </Text>
         </Row>
+
       </Col>
 
       {/*Sales Tax Deduction*/}
@@ -81,19 +82,20 @@ export default function InfoScreen() {
           </Text>
         </Row>
       </View>
-      
       <Col>
         <Row>
-          <Text style  = {Fonts.body}>
-            idk
-          </Text>
+          <Col>
+            <Text style  = {Fonts.body}>
+              idk
+            </Text>
+          </Col>
+          <Col>
+            <Image
+              source={{uri:''}} //image path
+              style={styles.image}
+            />
+          </Col>
         </Row>
-      </Col>
-      <Col>
-        <Image
-          source={{uri:''}} //image path
-          style={styles.image}
-        />
       </Col>
 
     </AppLayout>
@@ -115,23 +117,22 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: "row",
     paddingHorizontal: 16,
-    paddingTop: 10
-    
+    paddingTop: 10,
   },
   "2col": {
-    flex: 2,
+    flexDirection:"column",
     borderWidth: 3,
-    borderColor: Colors.lightBlue,
-    backgroundColor: Colors.lightBlue
+    borderColor: Colors.blueBackgroundForText,
+    backgroundColor: Colors.blueBackgroundForText
   },
-  deductionContainer: {
+  titleContainer: {
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
-    backgroundColor: Colors.darkBlue,
+    backgroundColor: Colors.inBetweenBlue,
     borderTopWidth: 7,
-    borderTopColor: Colors.darkBlue,
+    borderTopColor: Colors.inBetweenBlue,
   },
-  deductionContent: {
+  titleContent: {
     padding: 10,
   },
   centeredView: {
@@ -141,7 +142,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: '100%',
-    height: 200,
+    height: 100,
     marginTop: 16,
   }
 });
