@@ -30,10 +30,10 @@ export default function UploadScreen() {
         <Text style={styles.header}>Upload your sales tax info!</Text>
       </View>
 
-      <Col>
+      <View>
 
         {/* Item Bought Field */}
-        <Text>Description</Text>
+        <Text style={styles.fieldTitle}>Description</Text>
         <Row>
           <TextInput 
           style={styles.textBox}
@@ -43,7 +43,7 @@ export default function UploadScreen() {
         </Row>
 
         {/* Amount Field */}
-        <Text>Amount</Text>
+        <Text style={styles.fieldTitle}>Amount</Text>
         <Row>
           <TextInput 
           style={styles.textBox}
@@ -53,7 +53,7 @@ export default function UploadScreen() {
         </Row>
 
         {/* Date Field */}
-        <Text>Date of Purchase</Text>
+        <Text style={styles.fieldTitle}>Date of Purchase</Text>
         <Row>
           <TextInput 
           style={styles.textBox}
@@ -75,7 +75,7 @@ export default function UploadScreen() {
         </Row>
 
         {/* Tax Amount Field */}
-        <Text>Sales tax Amount:</Text>
+        <Text style={styles.fieldTitle}>Sales tax Amount:</Text>
         <Row>
           <TextInput
           style={styles.textBox}
@@ -86,7 +86,7 @@ export default function UploadScreen() {
 
 
         {/* State of Purchase Field */}
-        <Text>State of residence:</Text>
+        <Text style={styles.fieldTitle}>State of residence:</Text>
         <Row>
           <TextInput
           style={styles.textBox}
@@ -95,7 +95,7 @@ export default function UploadScreen() {
           onChangeText={(newText) => handleInputChange("state", newText)} />
         </Row>
 
-      </Col>
+      </View>
       <Button title='Submit'/>
     </AppLayout>
   );
@@ -149,4 +149,7 @@ const styles = StyleSheet.create({
   displayText: {
     fontSize: 20,
   },
+  fieldTitle: {
+    marginLeft: 4
+  }
 });
