@@ -13,16 +13,18 @@ export default function Index() {
           <View style={styles.deductionContent}>
             <Row>
               <Col>
-                <View>
+                <View style={{ padding: 1 }}>
                   <Text style={Fonts.subheader}>Tax deduction amount:</Text>
-                  <Text style={Fonts.header}>$1,000</Text>
+                  <Text style={Fonts.bigNumber}>$1,000</Text>
                 </View>
               </Col>
               <Col>
-                <Text style={Fonts.subheader}>
-                  Total sales tax for the year:
-                </Text>
-                <Text style={Fonts.subheader}>$1,000</Text>
+                <View style={{ padding: 1 }}>
+                  <Text style={Fonts.subheader}>
+                    Total sales tax for the year:
+                  </Text>
+                  <Text style={Fonts.subheader}>$1,000</Text>
+                </View>
               </Col>
             </Row>
           </View>
@@ -144,7 +146,7 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
   },
   deductionContent: {
-    padding: 10,
+    padding: 20,
   },
   buttonText: {
     alignItems: "center",
