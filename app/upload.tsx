@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { Text, View, StyleSheet, Button, TextInput } from "react-native";
 import { Link } from "expo-router";
 import AppLayout from "@/components/AppLayout";
+import { Colors } from '@/constants/Colors';
+import { Fonts } from '@/constants/Fonts';
 
 export default function UploadScreen() {
   const [info, setInfo] = useState({
@@ -27,7 +29,7 @@ export default function UploadScreen() {
   return (
     <AppLayout>
       <View style={styles.deductionContainer}>
-        <Text style={styles.header}>Upload your sales tax info!</Text>
+        <Text style={[styles.header, Fonts.subheader]}>Upload your sales tax info!</Text>
       </View>
 
       <View>
