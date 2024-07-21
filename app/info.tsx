@@ -33,7 +33,7 @@ export default function InfoScreen() {
       </View>
       <Col>
         <Row>
-          <Text style  = {Fonts.body}>
+          <Text style  = {[Fonts.body, {paddingBottom: 10}]}>
             idk
           </Text>
         </Row>
@@ -51,8 +51,9 @@ export default function InfoScreen() {
 
       <Col>
         <Row>
-          <Text style  = {Fonts.body}>
-            idk
+          <Text style  = {[Fonts.body, {paddingBottom: 10}]}>
+            idkkjkljfkasjfkljdsa;j fkdsa dfakfwejfkajek; ajf dfaj ksdf we jfle;f dkjaf;wefjkjsflkdj fa iweohfcmx,andajfhfhuewh fiejf ewfk dsf
+            fdsafkdshjfkhawehf j dksafj;
           </Text>
         </Row>
       </Col>
@@ -68,7 +69,7 @@ export default function InfoScreen() {
 
       <Col>
         <Row>
-          <Text style  = {Fonts.body}>
+          <Text style  = {[Fonts.body, {paddingBottom: 10}]}>
             idk
           </Text>
         </Row>
@@ -85,7 +86,7 @@ export default function InfoScreen() {
       <Col>
         <Row>
           <Col>
-            <Text style  = {Fonts.body}>
+            <Text style  = {[Fonts.body, {paddingBottom: 10}]}>
               idk
             </Text>
           </Col>

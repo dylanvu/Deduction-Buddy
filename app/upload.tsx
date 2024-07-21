@@ -1,11 +1,12 @@
 // view records
 import React, { useState } from 'react';
-import { Text, View, StyleSheet, Button, TextInput } from "react-native";
+import { Text, View, StyleSheet, TextInput, Image, TouchableOpacity } from "react-native";
 import { Link } from "expo-router";
 import AppLayout from "@/components/AppLayout";
 import { Colors } from '@/constants/Colors';
 import { Fonts } from '@/constants/Fonts';
 import { SelectList } from 'react-native-dropdown-select-list';
+import { setItem, getItem } from '@/utils/AsyncStorage';
 
 export default function UploadScreen() {
   const [info, setInfo] = useState({
@@ -19,56 +20,56 @@ export default function UploadScreen() {
   });
 
   const data = [
-    { key: 'Alabama', value: 'AL' },
-    { key: 'Alaska', value: 'AK' },
-    { key: 'Arizona', value: 'AZ' },
-    { key: 'Arkansas', value: 'AR' },
-    { key: 'California', value: 'CA' },
-    { key: 'Colorado', value: 'CO' },
-    { key: 'Connecticut', value: 'CT' },
-    { key: 'Delaware', value: 'DE' },
-    { key: 'Florida', value: 'FL' },
-    { key: 'Georgia', value: 'GA' },
-    { key: 'Hawaii', value: 'HI' },
-    { key: 'Idaho', value: 'ID' },
-    { key: 'Illinois', value: 'IL' },
-    { key: 'Indiana', value: 'IN' },
-    { key: 'Iowa', value: 'IA' },
-    { key: 'Kansas', value: 'KS' },
-    { key: 'Kentucky', value: 'KY' },
-    { key: 'Louisiana', value: 'LA' },
-    { key: 'Maine', value: 'ME' },
-    { key: 'Maryland', value: 'MD' },
-    { key: 'Massachusetts', value: 'MA' },
-    { key: 'Michigan', value: 'MI' },
-    { key: 'Minnesota', value: 'MN' },
-    { key: 'Mississippi', value: 'MS' },
-    { key: 'Missouri', value: 'MO' },
-    { key: 'Montana', value: 'MT' },
-    { key: 'Nebraska', value: 'NE' },
-    { key: 'Nevada', value: 'NV' },
-    { key: 'New Hampshire', value: 'NH' },
-    { key: 'New Jersey', value: 'NJ' },
-    { key: 'New Mexico', value: 'NM' },
-    { key: 'New York', value: 'NY' },
-    { key: 'North Carolina', value: 'NC' },
-    { key: 'North Dakota', value: 'ND' },
-    { key: 'Ohio', value: 'OH' },
-    { key: 'Oklahoma', value: 'OK' },
-    { key: 'Oregon', value: 'OR' },
-    { key: 'Pennsylvania', value: 'PA' },
-    { key: 'Rhode Island', value: 'RI' },
-    { key: 'South Carolina', value: 'SC' },
-    { key: 'South Dakota', value: 'SD' },
-    { key: 'Tennessee', value: 'TN' },
-    { key: 'Texas', value: 'TX' },
-    { key: 'Utah', value: 'UT' },
-    { key: 'Vermont', value: 'VT' },
-    { key: 'Virginia', value: 'VA' },
-    { key: 'Washington', value: 'WA' },
-    { key: 'West Virginia', value: 'WV' },
-    { key: 'Wisconsin', value: 'WI' },
-    { key: 'Wyoming', value: 'WY' },
+    { key: 'Alabama', value: 'Alabama' },
+    { key: 'Alaska', value: 'Alaska' },
+    { key: 'Arizona', value: 'Arizona' },
+    { key: 'Arkansas', value: 'Arkansas' },
+    { key: 'California', value: 'California' },
+    { key: 'Colorado', value: 'Colorado' },
+    { key: 'Connecticut', value: 'Connecticut' },
+    { key: 'Delaware', value: 'Delaware' },
+    { key: 'Florida', value: 'Florida' },
+    { key: 'Georgia', value: 'Georgia' },
+    { key: 'Hawaii', value: 'Hawaii' },
+    { key: 'Idaho', value: 'Idaho' },
+    { key: 'Illinois', value: 'Illinois' },
+    { key: 'Indiana', value: 'Indiana' },
+    { key: 'Iowa', value: 'Iowa' },
+    { key: 'Kansas', value: 'Kansas' },
+    { key: 'Kentucky', value: 'Kentucky' },
+    { key: 'Louisiana', value: 'Louisiana' },
+    { key: 'Maine', value: 'Maine' },
+    { key: 'Maryland', value: 'Maryland' },
+    { key: 'Massachusetts', value: 'Massachusetts' },
+    { key: 'Michigan', value: 'Michigan' },
+    { key: 'Minnesota', value: 'Minnesota' },
+    { key: 'Mississippi', value: 'Mississippi' },
+    { key: 'Missouri', value: 'Missouri' },
+    { key: 'Montana', value: 'Montana' },
+    { key: 'Nebraska', value: 'Nebraska' },
+    { key: 'Nevada', value: 'Nevada' },
+    { key: 'New Hampshire', value: 'New Hampshire' },
+    { key: 'New Jersey', value: 'New Jersey' },
+    { key: 'New Mexico', value: 'New Mexico' },
+    { key: 'New York', value: 'New York' },
+    { key: 'North Carolina', value: 'North Carolina' },
+    { key: 'North Dakota', value: 'North Dakota' },
+    { key: 'Ohio', value: 'Ohio' },
+    { key: 'Oklahoma', value: 'Oklahoma' },
+    { key: 'Oregon', value: 'Oregon' },
+    { key: 'Pennsylvania', value: 'Pennsylvania' },
+    { key: 'Rhode Island', value: 'Rhode Island' },
+    { key: 'South Carolina', value: 'South Carolina' },
+    { key: 'South Dakota', value: 'South Dakota' },
+    { key: 'Tennessee', value: 'Tennessee' },
+    { key: 'Texas', value: 'Texa' },
+    { key: 'Utah', value: 'Utah' },
+    { key: 'Vermont', value: 'Vermont' },
+    { key: 'Virginia', value: 'Virginia' },
+    { key: 'Washington', value: 'Washington' },
+    { key: 'West Virginia', value: 'West Virginia' },
+    { key: 'Wisconsin', value: 'Wisconsin' },
+    { key: 'Wyoming', value: 'Wyoming' },
   ]
 
   const handleInputChange = (field : string, value : string) => {
@@ -78,9 +79,31 @@ export default function UploadScreen() {
     });
   };
 
-  const handleSubmit = () => {
+  const clearInfo = () => {
+    setInfo({
+      description: '',
+      amount: '',
+      month: '',
+      day: '',
+      year: '',
+      tax: '',
+      state: ''
+    });
+  };
+
+  const handleSubmit = async () => {
     console.log(info);
-  }
+
+    let totalTax = await getItem("total-tax");
+    if (totalTax) {
+      totalTax = parseFloat(totalTax);
+      let newTax = parseFloat(info.tax);
+      totalTax = totalTax + newTax;
+    }
+    setItem("total-tax", totalTax);
+
+    clearInfo();
+  };
 
   
 
@@ -99,64 +122,80 @@ export default function UploadScreen() {
         </View>
       </View>
 
-      <View style = {{paddingTop: 30, paddingHorizontal: 5}}>
+      <View style = {{paddingTop: 50, paddingHorizontal: 20}}>
 
         {/* Item Bought Field */}
         <Text style={[Fonts.subheader, {paddingHorizontal: 5}]}>
-          Description:
+          Description of Receipt:
         </Text>
         <Row>
           <TextInput 
           style={styles.textBox}
-          placeholder='Enter Text'
           value={info.description}
           onChangeText={(newText) => handleInputChange("description", newText)} />
         </Row>
 
         {/* Amount Field */}
-        <Text style={[Fonts.subheader, {paddingHorizontal: 5, paddingTop: 30}]}>
-          Amount:
+        <Text style={[Fonts.subheader, {paddingHorizontal: 5, paddingTop: 25}]}>
+          Item Amount:
         </Text>
         <Row>
           <TextInput 
           style={styles.textBox}
-          placeholder='0'
           value={info.amount}
           onChangeText={(newText) => handleInputChange("amount", newText)} />
         </Row>
 
         {/* Date Field */}
-        <Text style={[Fonts.subheader, {paddingHorizontal: 5, paddingTop: 30}]}>
+        <Text style={[Fonts.subheader, {paddingHorizontal: 5, paddingTop: 25}]}>
           Date of Purchase:
         </Text>
-        <Row>
-          <TextInput 
-          style={styles.textBox}
-          placeholder="Month"
-          value={info.month}
-          onChangeText={(newText) => handleInputChange("month", newText)} />
 
-          <TextInput 
-          style={styles.textBox}
-          placeholder="Day"
-          value={info.day}
-          onChangeText={(newText) => handleInputChange("day", newText)} />
+       <Row>
+          <Col>
+            <View>
+              <TextInput 
+              style={styles.dateContainer}
+              value={info.month}
+              onChangeText={(newText) => handleInputChange("month", newText)} />
+            </View>
+            <View style = {styles.centeredView}>
+              <Text style={[Fonts.body, {color: Colors.inBetweenBlue}]}>month</Text>
+            </View>
+          </Col>
+          
+          <Col>
+            <View>
+              <TextInput 
+              style={[styles.dateContainer]}
+              value={info.day}
+              onChangeText={(newText) => handleInputChange("day", newText)} />
+            </View>
+            <View style = {styles.centeredView}>
+              <Text style={[Fonts.body, {color: Colors.inBetweenBlue}]}>day</Text>
+            </View>
+          </Col>
 
-          <TextInput 
-          style={styles.textBox}
-          placeholder="Year"
-          value={info.year}
-          onChangeText={(newText) => handleInputChange("year", newText)} />
-        </Row>
+          <Col>
+            <View>
+              <TextInput 
+              style={styles.dateContainer}
+              value={info.year}
+              onChangeText={(newText) => handleInputChange("year", newText)} />
+            </View>
+            <View style = {styles.centeredView}>
+              <Text style = {[Fonts.body, {color: Colors.inBetweenBlue}]}>year</Text>
+            </View>
+          </Col>
+      </Row>
 
         {/* Tax Amount Field */}
-        <Text style={[Fonts.subheader, {paddingHorizontal: 5, paddingTop: 30}]}>
+        <Text style={[Fonts.subheader, {paddingHorizontal: 5, paddingTop: 25}]}>
           Sales Tax Amount:
         </Text>
         <Row>
           <TextInput
           style={styles.textBox}
-          placeholder="0"
           value={info.tax}
           onChangeText={(newText) => handleInputChange("tax", newText)} />
         </Row>
@@ -165,25 +204,32 @@ export default function UploadScreen() {
         {/* State of Purchase Field */}
         <Text style={[Fonts.subheader, {paddingHorizontal: 5, paddingTop: 30}]}>
           State of residence:
-          </Text>
-        <Row>
+        </Text>
+        <View style={{flex:1, marginBottom: 20}}>
           <SelectList
             setSelected={(val : string) => handleInputChange("state", val)}
             data={data}
             save="value"
-            boxStyles={styles.textBox}
+            boxStyles={styles.selectionContainer}
+            dropdownStyles={styles.selectionList}
+            dropdownItemStyles={styles.selection}
           />
-        </Row>
-
-      {/*Continue Button*/}
-      </View >
-      <Row>
-        
-        <View style={styles.buttonContainer}>
-          <Button title='Continue' onPress={handleSubmit}/>
         </View>
 
-      </Row>
+          
+      
+        {/*Continue Button*/}   
+        <TouchableOpacity onPress={handleSubmit} style={styles.buttonContainer}>
+          <View style={styles.centeredView}>
+            <Text style={[Fonts.header, {color: Colors.white}]}>
+              Continue
+            </Text>
+          </View>
+        </TouchableOpacity>
+
+      
+      </View >
+
       
     </AppLayout>
   );
@@ -209,38 +255,70 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   "2col": {
-    borderWidth: 1,
-    flex: 2,
-    padding: 10,
-    margin: 10,
+    flex:1,
+
   },
-  deductionContainer: {
-    padding: 10,
-  },
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    paddingHorizontal: 16,
+  buttonContainer:{
+    marginLeft: "70%",
+    marginTop: 35,
+    borderWidth: 2,
+    borderRadius: 20,
+    backgroundColor: Colors.darkBlue,
+    borderColor: Colors.darkBlue,
+    height: 45
   },
 
-  buttonContainer:{
-    flex: 1,
-    flexDirection: "column",
-    alignItems: "flex-end",
-    marginRight: 4
+  selectionContainer:{
+    flex: 2,
+    height: 40,
+    backgroundColor: Colors.white,
+    borderColor: Colors.darkBlue,
+    borderWidth: 2,
+    margin: 4,
+    borderRadius: 12,
   },
-  textBoxContainer: {
-    marginBottom: 20,
+
+  selectionList:{
+    width: '100%',
+    maxHeight: 130,
+    borderWidth: 0.1,
+    borderColor: '#ccc',
+    borderRadius: 1,
+    marginTop: 0, 
+  },
+
+  selection:{
+    width: '100%',
+    maxHeight: 30,
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    borderWidth: 0.1,
+    borderColor: '#D9D9D9',
+    backgroundColor: '#F4F4F4',
+  },
+
+  dateContainer:{
+    height: 40,
+    backgroundColor: Colors.white,
+    borderColor: Colors.darkBlue,
+    borderWidth: 2,
+    marginLeft: 4,
+    marginTop: 4,
+    borderRadius: 12,
+    width: "95%",
+    textAlign: "center",
+
+
   },
   textBox: {
     flex: 1,
-    height: 40,
-    backgroundColor: 'white',
+    height: 35,
+    backgroundColor: Colors.white,
     borderColor: Colors.darkBlue,
     borderWidth: 2,
     paddingLeft: 8,
     margin: 4,
-    borderRadius: 15,
+    borderRadius: 12,
     width: "100%"
   },
   displayText: {
@@ -248,8 +326,7 @@ const styles = StyleSheet.create({
   },
 
   titleContainer: {
-    borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
+
     backgroundColor: Colors.lightBlue,
     borderTopWidth: 7,
     borderTopColor: Colors.darkBlue,
