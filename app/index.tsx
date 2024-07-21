@@ -3,6 +3,7 @@ import { Link } from "expo-router";
 import AppLayout from "@/components/AppLayout";
 import { Ionicons, MaterialCommunityIcons, Feather } from "@expo/vector-icons";
 import { Colors } from "@/constants/Colors";
+import { Fonts } from "@/constants/Fonts";
 
 export default function Index() {
   return (
@@ -10,9 +11,20 @@ export default function Index() {
       <View style={[styles.deductionContainer, styles.shadow]}>
         <View>
           <View style={styles.deductionContent}>
-            <Text>Tax Deduction Amount:</Text>
-            <Text>$1,000</Text>
-            <Text>Sales Tax Total: $1,000</Text>
+            <Row>
+              <Col>
+                <View>
+                  <Text style={Fonts.subheader}>Tax deduction amount:</Text>
+                  <Text style={Fonts.header}>$1,000</Text>
+                </View>
+              </Col>
+              <Col>
+                <Text style={Fonts.subheader}>
+                  Total sales tax for the year:
+                </Text>
+                <Text style={Fonts.subheader}>$1,000</Text>
+              </Col>
+            </Row>
           </View>
         </View>
       </View>
@@ -20,62 +32,77 @@ export default function Index() {
       <View style={styles.buttonsContainer}>
         <Row>
           <Col>
-            <Link href="/info" asChild>
-              <Pressable style={styles.buttonText}>
-                <Ionicons
-                  name="information-circle-outline"
-                  size={88}
-                  color={Colors.darkBlue}
-                />
-                <Text
-                  style={{
-                    textAlign: "center",
-                    marginLeft: 12,
-                    marginRight: 12,
-                  }}
-                >
-                  Learn about sales tax
-                </Text>
-              </Pressable>
-            </Link>
+            <View style={styles.buttonCard}>
+              <Link href="/info" asChild>
+                <Pressable style={styles.buttonText}>
+                  <Ionicons
+                    name="information-circle-outline"
+                    size={88}
+                    color={Colors.darkBlue}
+                  />
+                  <Text
+                    style={[
+                      {
+                        textAlign: "center",
+                        marginLeft: 12,
+                        marginRight: 12,
+                      },
+                      Fonts.body,
+                    ]}
+                  >
+                    Learn about sales tax
+                  </Text>
+                </Pressable>
+              </Link>
+            </View>
           </Col>
           <Col>
-            <Link href="/upload" asChild>
-              <Pressable style={styles.buttonText}>
-                <Feather name="upload" size={88} color={Colors.darkBlue} />
-                <Text
-                  style={{
-                    textAlign: "center",
-                    marginLeft: 12,
-                    marginRight: 12,
-                  }}
-                >
-                  Upload your receipt
-                </Text>
-              </Pressable>
-            </Link>
+            <View style={styles.buttonCard}>
+              <Link href="/upload" asChild>
+                <Pressable style={styles.buttonText}>
+                  <Feather name="upload" size={88} color={Colors.darkBlue} />
+                  <Text
+                    style={[
+                      {
+                        textAlign: "center",
+                        marginLeft: 12,
+                        marginRight: 12,
+                      },
+                      Fonts.body,
+                    ]}
+                  >
+                    Upload your receipt
+                  </Text>
+                </Pressable>
+              </Link>
+            </View>
           </Col>
         </Row>
         <Row>
           <Col>
-            <Link href="/view" asChild>
-              <Pressable style={styles.buttonText}>
-                <MaterialCommunityIcons
-                  name="clipboard-text-outline"
-                  size={88}
-                  color={Colors.darkBlue}
-                />
-                <Text
-                  style={{
-                    textAlign: "center",
-                    marginLeft: 12,
-                    marginRight: 12,
-                  }}
-                >
-                  View past receipts
-                </Text>
-              </Pressable>
-            </Link>
+            <View style={styles.buttonCard}>
+              <Link href="/view" asChild>
+                <Pressable style={styles.buttonText}>
+                  <MaterialCommunityIcons
+                    name="clipboard-text-outline"
+                    size={88}
+                    color={Colors.darkBlue}
+                  />
+                  <Text
+                    style={[
+                      {
+                        textAlign: "center",
+                        marginLeft: 12,
+                        marginRight: 12,
+                      },
+                      Fonts.body,
+                    ]}
+                  >
+                    View past receipts
+                  </Text>
+                </Pressable>
+              </Link>
+            </View>
           </Col>
         </Row>
       </View>
@@ -98,12 +125,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   "2col": {
-    borderWidth: 2,
     flex: 2,
-    padding: 10,
-    margin: 10,
-    borderRadius: 15,
-    borderColor: Colors.darkBlue,
   },
   deductionContainer: {
     borderBottomLeftRadius: 20,
@@ -132,5 +154,12 @@ const styles = StyleSheet.create({
     marginLeft: 16,
     marginRight: 16,
     marginTop: 40,
+  },
+  buttonCard: {
+    borderWidth: 2,
+    padding: 10,
+    margin: 10,
+    borderRadius: 15,
+    borderColor: Colors.darkBlue,
   },
 });
