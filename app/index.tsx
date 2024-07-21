@@ -10,19 +10,39 @@ export default function Index() {
     <AppLayout>
       <View style={[styles.deductionContainer, styles.shadow]}>
         <View>
-          <View style={styles.deductionContent}>
+          <View style={[styles.deductionContent, { padding: 10 }]}>
             <Row>
               <Col>
-                <View style={{ padding: 1 }}>
+                <View style={[styles.deductionCol]}>
                   <Text style={Fonts.subheader}>Tax deduction amount:</Text>
-                  <Text style={Fonts.bigNumber}>$1,000</Text>
                 </View>
               </Col>
               <Col>
-                <View style={{ padding: 1 }}>
+                <View style={[styles.deductionCol]}>
                   <Text style={Fonts.subheader}>
                     Total sales tax for the year:
                   </Text>
+                </View>
+              </Col>
+            </Row>
+            <Row minHeight={70}>
+              <Col>
+                <View
+                  style={[
+                    styles.deductionCol,
+                    { flex: 1, justifyContent: "center" },
+                  ]}
+                >
+                  <Text style={Fonts.bigNumber}>$2,000</Text>
+                </View>
+              </Col>
+              <Col>
+                <View
+                  style={[
+                    styles.deductionCol,
+                    { flex: 1, justifyContent: "center" },
+                  ]}
+                >
                   <Text style={Fonts.subheader}>$1,000</Text>
                 </View>
               </Col>
@@ -113,8 +133,18 @@ export default function Index() {
 }
 
 // generic row component wrapper
-function Row({ children }: { children: React.ReactNode }) {
-  return <View style={styles.row}>{children}</View>;
+function Row({
+  minHeight,
+  children,
+}: {
+  minHeight?: number;
+  children: React.ReactNode;
+}) {
+  return (
+    <View style={[styles.row, minHeight ? { minHeight: minHeight } : null]}>
+      {children}
+    </View>
+  );
 }
 
 // generic two column component
@@ -135,6 +165,11 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.lightBlue,
     borderTopWidth: 7,
     borderTopColor: Colors.darkBlue,
+  },
+  deductionCol: {
+    padding: 1,
+    paddingLeft: 7,
+    paddingRight: 7,
   },
   shadow: {
     shadowColor: Colors.darkBlue,
