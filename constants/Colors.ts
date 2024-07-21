@@ -30,6 +30,5 @@ export const Colors = {
   darkBlue: "#457B9D",
   whiteForFont: "#EFEFEF",
   blueBackgroundForText: "#D2ECED",
-  inBetweenBlue: "#5E98BC",
-  lighterBlue: "#D2ECED"
+  inBetweenBlue: "#5E98BC"
 };

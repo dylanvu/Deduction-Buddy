@@ -37,34 +37,47 @@ export default function UploadScreen() {
 
   return (
     <AppLayout>
-      <View style={styles.deductionContainer}>
-        <Text style={[styles.header, Fonts.header]}>Upload your sales tax info!</Text>
+
+      {/*title*/} 
+     {/*title of page*/}
+     <View style={[styles.titleContainer, styles.shadow]}>
+        <View>
+          <View style={[styles.titleContent, styles.centeredView]}>
+              <Text style={Fonts.header}>
+                Upload your sales tax info!
+              </Text>
+          </View>
+        </View>
       </View>
 
-      <View>
+      <View style = {{paddingTop: 20, paddingHorizontal: 20}}>
 
         {/* Item Bought Field */}
-        <Text style={styles.fieldTitle}>Description</Text>
+        <Text style={[Fonts.subheader, {paddingHorizontal: 5}]}>
+          Description:
+        </Text>
         <Row>
           <TextInput 
           style={styles.textBox}
-          placeholder="Enter Text"
           value={info.description}
           onChangeText={(newText) => handleInputChange("description", newText)} />
         </Row>
 
         {/* Amount Field */}
-        <Text style={styles.fieldTitle}>Amount</Text>
+        <Text style={[Fonts.subheader, {paddingHorizontal: 5}]}>
+          Amount:
+        </Text>
         <Row>
           <TextInput 
           style={styles.textBox}
-          placeholder="0"
           value={info.amount}
           onChangeText={(newText) => handleInputChange("amount", newText)} />
         </Row>
 
         {/* Date Field */}
-        <Text style={styles.fieldTitle}>Date of Purchase</Text>
+        <Text style={[Fonts.subheader, {paddingHorizontal: 5}]}>
+          Date of Purchase:
+        </Text>
         <Row>
           <TextInput 
           style={styles.textBox}
@@ -86,7 +99,9 @@ export default function UploadScreen() {
         </Row>
 
         {/* Tax Amount Field */}
-        <Text style={styles.fieldTitle}>Sales tax Amount:</Text>
+        <Text style={[Fonts.subheader, {paddingHorizontal: 5}]}>
+          Sales Tax Amount:
+        </Text>
         <Row>
           <TextInput
           style={styles.textBox}
@@ -128,6 +143,11 @@ const Col = ({ children }: { children: React.ReactNode }) => {
 };
 
 const styles = StyleSheet.create({
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
   row: {
     flexDirection: "row",
   },
@@ -140,13 +160,6 @@ const styles = StyleSheet.create({
   deductionContainer: {
     padding: 10,
   },
-  header: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    fontSize: 20,
-    textAlign: "center"
-  },
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -158,14 +171,37 @@ const styles = StyleSheet.create({
   textBox: {
     flex: 1,
     height: 40,
-    backgroundColor: 'lightgray',
+    backgroundColor: 'white',
+    borderColor: Colors.darkBlue,
+    borderWidth: 2,
     paddingLeft: 8,
     margin: 4
   },
   displayText: {
     fontSize: 20,
   },
-  fieldTitle: {
-    marginLeft: 4
+  titleContainer: {
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+    backgroundColor: Colors.lightBlue,
+    borderTopWidth: 7,
+    borderTopColor: Colors.darkBlue,
+  },
+  titleCol: {
+    padding: 1,
+    paddingLeft: 7,
+    paddingRight: 7,
+  },
+  shadow: {
+    shadowColor: Colors.darkBlue,
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0.7,
+    shadowRadius: 5,
+  },
+  titleContent: {
+    padding: 20,
   }
 });
