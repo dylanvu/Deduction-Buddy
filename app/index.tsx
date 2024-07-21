@@ -1,7 +1,6 @@
-import { Text, View, StyleSheet, Pressable } from "react-native";
+import { Text, View, StyleSheet, Pressable, Image } from "react-native";
 import { Link } from "expo-router";
 import AppLayout from "@/components/AppLayout";
-import { Ionicons, MaterialCommunityIcons, Feather } from "@expo/vector-icons";
 import { Colors } from "@/constants/Colors";
 import { Fonts } from "@/constants/Fonts";
 
@@ -57,10 +56,9 @@ export default function Index() {
             <View style={styles.buttonCard}>
               <Link href="/info" asChild>
                 <Pressable style={styles.buttonText}>
-                  <Ionicons
-                    name="information-circle-outline"
-                    size={88}
-                    color={Colors.darkBlue}
+                  <Image
+                    source={require("../assets/images/info.png")}
+                    style={{ width: 88, height: 88 }}
                   />
                   <Text
                     style={[
@@ -82,7 +80,10 @@ export default function Index() {
             <View style={styles.buttonCard}>
               <Link href="/upload" asChild>
                 <Pressable style={styles.buttonText}>
-                  <Feather name="upload" size={88} color={Colors.darkBlue} />
+                  <Image
+                    source={require("../assets/images/upload.png")}
+                    style={{ width: 88, height: 88 }}
+                  />
                   <Text
                     style={[
                       {
@@ -105,10 +106,9 @@ export default function Index() {
             <View style={styles.buttonCard}>
               <Link href="/view" asChild>
                 <Pressable style={styles.buttonText}>
-                  <MaterialCommunityIcons
-                    name="clipboard-text-outline"
-                    size={88}
-                    color={Colors.darkBlue}
+                  <Image
+                    source={require("../assets/images/record.png")}
+                    style={{ width: 88, height: 88 }}
                   />
                   <Text
                     style={[
