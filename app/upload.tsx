@@ -99,7 +99,7 @@ export default function UploadScreen() {
         </View>
       </View>
 
-      <View style = {{paddingTop: 20, paddingHorizontal: 20}}>
+      <View style = {{paddingTop: 30, paddingHorizontal: 5}}>
 
         {/* Item Bought Field */}
         <Text style={[Fonts.subheader, {paddingHorizontal: 5}]}>
@@ -108,23 +108,25 @@ export default function UploadScreen() {
         <Row>
           <TextInput 
           style={styles.textBox}
+          placeholder='Enter Text'
           value={info.description}
           onChangeText={(newText) => handleInputChange("description", newText)} />
         </Row>
 
         {/* Amount Field */}
-        <Text style={[Fonts.subheader, {paddingHorizontal: 5}]}>
+        <Text style={[Fonts.subheader, {paddingHorizontal: 5, paddingTop: 30}]}>
           Amount:
         </Text>
         <Row>
           <TextInput 
           style={styles.textBox}
+          placeholder='0'
           value={info.amount}
           onChangeText={(newText) => handleInputChange("amount", newText)} />
         </Row>
 
         {/* Date Field */}
-        <Text style={[Fonts.subheader, {paddingHorizontal: 5}]}>
+        <Text style={[Fonts.subheader, {paddingHorizontal: 5, paddingTop: 30}]}>
           Date of Purchase:
         </Text>
         <Row>
@@ -148,7 +150,7 @@ export default function UploadScreen() {
         </Row>
 
         {/* Tax Amount Field */}
-        <Text style={[Fonts.subheader, {paddingHorizontal: 5}]}>
+        <Text style={[Fonts.subheader, {paddingHorizontal: 5, paddingTop: 30}]}>
           Sales Tax Amount:
         </Text>
         <Row>
@@ -161,7 +163,9 @@ export default function UploadScreen() {
 
 
         {/* State of Purchase Field */}
-        <Text style={[Fonts.subheader, {paddingHorizontal: 5}]}>State of residence:</Text>
+        <Text style={[Fonts.subheader, {paddingHorizontal: 5, paddingTop: 30}]}>
+          State of residence:
+          </Text>
         <Row>
           <SelectList
             setSelected={(val : string) => handleInputChange("state", val)}
@@ -171,8 +175,16 @@ export default function UploadScreen() {
           />
         </Row>
 
-      </View>
-      <Button title='Submit' onPress={handleSubmit}/>
+      {/*Continue Button*/}
+      </View >
+      <Row>
+        
+        <View style={styles.buttonContainer}>
+          <Button title='Continue' onPress={handleSubmit}/>
+        </View>
+
+      </Row>
+      
     </AppLayout>
   );
 }
@@ -210,6 +222,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 16,
   },
+
+  buttonContainer:{
+    flex: 1,
+    flexDirection: "column",
+    alignItems: "flex-end",
+    marginRight: 4
+  },
   textBoxContainer: {
     marginBottom: 20,
   },
@@ -220,7 +239,9 @@ const styles = StyleSheet.create({
     borderColor: Colors.darkBlue,
     borderWidth: 2,
     paddingLeft: 8,
-    margin: 4
+    margin: 4,
+    borderRadius: 15,
+    width: "100%"
   },
   displayText: {
     fontSize: 20,
@@ -250,7 +271,4 @@ const styles = StyleSheet.create({
   titleContent: {
     padding: 20,
   },
-  'stateSelect': {
-
-  }
 });
