@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, StyleSheet, Image } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Colors } from "@/constants/Colors";
 import { StatusBar } from "expo-status-bar";
@@ -9,7 +9,10 @@ const Header = () => {
     <View style={styles.container}>
       <StatusBar style="dark" />
       <View style={styles.row}>
-        <Text style={styles.leftItem}>Logo</Text>
+        <Image
+          source={require("../assets/images/logo.png")}
+          style={{ width: 50, height: 50, resizeMode: "contain" }}
+        />
         <MaterialCommunityIcons
           name="account-circle-outline"
           size={35}
