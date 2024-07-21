@@ -12,4 +12,8 @@ export const Fonts = StyleSheet.create({
     fontSize: 13,
     fontFamily: "Poppins-Regular",
   },
+  bigNumber: {
+    fontSize: 36,
+    fontFamily: "Poppins-SemiBold",
+  },
 });

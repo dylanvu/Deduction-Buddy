@@ -1,7 +1,6 @@
-import { Text, View, StyleSheet, Pressable } from "react-native";
+import { Text, View, StyleSheet, Pressable, Image } from "react-native";
 import { Link } from "expo-router";
 import AppLayout from "@/components/AppLayout";
-import { Ionicons, MaterialCommunityIcons, Feather } from "@expo/vector-icons";
 import { Colors } from "@/constants/Colors";
 import { Fonts } from "@/constants/Fonts";
 
@@ -10,19 +9,41 @@ export default function Index() {
     <AppLayout>
       <View style={[styles.deductionContainer, styles.shadow]}>
         <View>
-          <View style={styles.deductionContent}>
+          <View style={[styles.deductionContent, { padding: 10 }]}>
             <Row>
               <Col>
-                <View>
+                <View style={[styles.deductionCol]}>
                   <Text style={Fonts.subheader}>Tax deduction amount:</Text>
-                  <Text style={Fonts.header}>$1,000</Text>
                 </View>
               </Col>
               <Col>
-                <Text style={Fonts.subheader}>
-                  Total sales tax for the year:
-                </Text>
-                <Text style={Fonts.subheader}>$1,000</Text>
+                <View style={[styles.deductionCol]}>
+                  <Text style={Fonts.subheader}>
+                    Total sales tax for the year:
+                  </Text>
+                </View>
+              </Col>
+            </Row>
+            <Row minHeight={70}>
+              <Col>
+                <View
+                  style={[
+                    styles.deductionCol,
+                    { flex: 1, justifyContent: "center" },
+                  ]}
+                >
+                  <Text style={Fonts.bigNumber}>$2,000</Text>
+                </View>
+              </Col>
+              <Col>
+                <View
+                  style={[
+                    styles.deductionCol,
+                    { flex: 1, justifyContent: "center" },
+                  ]}
+                >
+                  <Text style={Fonts.subheader}>$1,000</Text>
+                </View>
               </Col>
             </Row>
           </View>
@@ -35,10 +56,9 @@ export default function Index() {
             <View style={styles.buttonCard}>
               <Link href="/info" asChild>
                 <Pressable style={styles.buttonText}>
-                  <Ionicons
-                    name="information-circle-outline"
-                    size={88}
-                    color={Colors.darkBlue}
+                  <Image
+                    source={require("../assets/images/info.png")}
+                    style={{ width: 88, height: 88 }}
                   />
                   <Text
                     style={[
@@ -60,7 +80,10 @@ export default function Index() {
             <View style={styles.buttonCard}>
               <Link href="/upload" asChild>
                 <Pressable style={styles.buttonText}>
-                  <Feather name="upload" size={88} color={Colors.darkBlue} />
+                  <Image
+                    source={require("../assets/images/upload.png")}
+                    style={{ width: 88, height: 88 }}
+                  />
                   <Text
                     style={[
                       {
@@ -83,10 +106,9 @@ export default function Index() {
             <View style={styles.buttonCard}>
               <Link href="/view" asChild>
                 <Pressable style={styles.buttonText}>
-                  <MaterialCommunityIcons
-                    name="clipboard-text-outline"
-                    size={88}
-                    color={Colors.darkBlue}
+                  <Image
+                    source={require("../assets/images/record.png")}
+                    style={{ width: 88, height: 88 }}
                   />
                   <Text
                     style={[
@@ -111,8 +133,18 @@ export default function Index() {
 }
 
 // generic row component wrapper
-function Row({ children }: { children: React.ReactNode }) {
-  return <View style={styles.row}>{children}</View>;
+function Row({
+  minHeight,
+  children,
+}: {
+  minHeight?: number;
+  children: React.ReactNode;
+}) {
+  return (
+    <View style={[styles.row, minHeight ? { minHeight: minHeight } : null]}>
+      {children}
+    </View>
+  );
 }
 
 // generic two column component
@@ -134,6 +166,11 @@ const styles = StyleSheet.create({
     borderTopWidth: 7,
     borderTopColor: Colors.darkBlue,
   },
+  deductionCol: {
+    padding: 1,
+    paddingLeft: 7,
+    paddingRight: 7,
+  },
   shadow: {
     shadowColor: Colors.darkBlue,
     shadowOffset: {
@@ -144,7 +181,7 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
   },
   deductionContent: {
-    padding: 10,
+    padding: 20,
   },
   buttonText: {
     alignItems: "center",
@@ -161,5 +198,6 @@ const styles = StyleSheet.create({
     margin: 10,
     borderRadius: 15,
     borderColor: Colors.darkBlue,
+    // maxWidth: 159,
   },
 });
