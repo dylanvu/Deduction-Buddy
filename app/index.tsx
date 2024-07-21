@@ -3,8 +3,40 @@ import { Link } from "expo-router";
 import AppLayout from "@/components/AppLayout";
 import { Colors } from "@/constants/Colors";
 import { Fonts } from "@/constants/Fonts";
+import { useEffect, useState } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function Index() {
+  const [salesTaxTotal, setSalesTaxTotal] = useState(0);
+  async function getSalesTotal() {
+    try {
+      const value = await AsyncStorage.getItem("tax-total");
+      if (value !== null) {
+        // value previously stored
+        // parse the value to a number
+        const salesTotal = parseFloat(value);
+        if (!isNaN(salesTotal)) {
+          setSalesTaxTotal(salesTotal);
+        } else {
+          // not a number
+          console.log("storage not a float");
+        }
+      }
+    } catch (e) {
+      // error reading value
+      console.error("error reading value");
+    }
+  }
+  useEffect(() => {
+    // get the sales total from persistent storage
+    getSalesTotal();
+  });
+
+  // parse the sales tax total to a nicely formatted money string
+  const formattedSalesTaxTotal = salesTaxTotal.toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
+  });
   return (
     <AppLayout>
       <View style={[styles.deductionContainer, styles.shadow]}>
@@ -42,7 +74,7 @@ export default function Index() {
                     { flex: 1, justifyContent: "center" },
                   ]}
                 >
-                  <Text style={Fonts.subheader}>$1,000</Text>
+                  <Text style={Fonts.subheader}>{formattedSalesTaxTotal}</Text>
                 </View>
               </Col>
             </Row>
