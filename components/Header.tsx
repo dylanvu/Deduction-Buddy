@@ -2,10 +2,12 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Colors } from "@/constants/Colors";
+import { StatusBar } from "expo-status-bar";
 
 const Header = () => {
   return (
     <View style={styles.container}>
+      <StatusBar style="dark" />
       <View style={styles.row}>
         <Text style={styles.leftItem}>Logo</Text>
         <MaterialCommunityIcons
