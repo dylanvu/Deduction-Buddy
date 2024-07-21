@@ -12,11 +12,11 @@ export default function InfoScreen() {
       {/*title of page*/}
       <View style={styles.titleContainer}>
         <View>
-          <View style={[styles.titleContent, styles.centeredView]}>
-              <Text style={[Fonts.header, {color: Colors.white }]}>
+          <View style={styles.centeredView}>
+              <Text style={[Fonts.header, {color: Colors.whiteForFont }]}>
                 General Sales Taxes
               </Text>
-              <Text style={[Fonts.header, {color: Colors.white }]}>
+              <Text style={[Fonts.header, {color: Colors.whiteForFont }]}>
                 101
               </Text>
           </View>
@@ -62,7 +62,7 @@ export default function InfoScreen() {
       <View style ={{paddingTop: 15}}>
         <Row>
           <Text style={[Fonts.subheader, {fontWeight: 'bold'}]}>
-            Accepted Items
+            Items That Count toward Sales Tax
           </Text>
         </Row>
       </View>
@@ -132,9 +132,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.inBetweenBlue,
     borderTopWidth: 7,
     borderTopColor: Colors.inBetweenBlue,
-  },
-  titleContent: {
-    padding: 10,
+    padding: 20,
   },
   centeredView: {
     flex: 1,

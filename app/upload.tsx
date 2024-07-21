@@ -205,7 +205,7 @@ export default function UploadScreen() {
         <Text style={[Fonts.subheader, {paddingHorizontal: 5, paddingTop: 30}]}>
           State of residence:
         </Text>
-        <View style={{flex:1, marginBottom: 20}}>
+        <View>
           <SelectList
             setSelected={(val : string) => handleInputChange("state", val)}
             data={data}
@@ -221,7 +221,7 @@ export default function UploadScreen() {
         {/*Continue Button*/}   
         <TouchableOpacity onPress={handleSubmit} style={styles.buttonContainer}>
           <View style={styles.centeredView}>
-            <Text style={[Fonts.header, {color: Colors.white}]}>
+            <Text style={[Fonts.header, {color: Colors.whiteForFont}]}>
               Continue
             </Text>
           </View>
@@ -260,7 +260,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer:{
     marginLeft: "70%",
-    marginTop: 35,
+    marginTop: 40,
     borderWidth: 2,
     borderRadius: 20,
     backgroundColor: Colors.darkBlue,
@@ -298,21 +298,21 @@ const styles = StyleSheet.create({
   },
 
   dateContainer:{
-    height: 40,
+    height: 45,
     backgroundColor: Colors.white,
     borderColor: Colors.darkBlue,
     borderWidth: 2,
     marginLeft: 4,
     marginTop: 4,
     borderRadius: 12,
-    width: "95%",
+    width: "90%",
     textAlign: "center",
 
 
   },
   textBox: {
     flex: 1,
-    height: 35,
+    height: 40,
     backgroundColor: Colors.white,
     borderColor: Colors.darkBlue,
     borderWidth: 2,
