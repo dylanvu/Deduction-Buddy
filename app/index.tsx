@@ -198,6 +198,6 @@ const styles = StyleSheet.create({
     margin: 10,
     borderRadius: 15,
     borderColor: Colors.darkBlue,
-    maxWidth: 159,
+    // maxWidth: 159,
   },
 });
