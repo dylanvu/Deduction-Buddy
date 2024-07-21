@@ -5,6 +5,7 @@ import { Link } from "expo-router";
 import AppLayout from "@/components/AppLayout";
 import { Colors } from '@/constants/Colors';
 import { Fonts } from '@/constants/Fonts';
+import { SelectList } from 'react-native-dropdown-select-list';
 
 export default function UploadScreen() {
   const [info, setInfo] = useState({
@@ -17,6 +18,10 @@ export default function UploadScreen() {
     state: ''
   });
 
+  const data = [
+    {key: 'California', value: 'CA'},
+  ]
+
   const handleInputChange = (field : string, value : string) => {
     setInfo({
       ...info,
@@ -24,12 +29,16 @@ export default function UploadScreen() {
     });
   };
 
+  const handleSubmit = () => {
+    console.log(info);
+  }
+
   
 
   return (
     <AppLayout>
       <View style={styles.deductionContainer}>
-        <Text style={[styles.header, Fonts.subheader]}>Upload your sales tax info!</Text>
+        <Text style={[styles.header, Fonts.header]}>Upload your sales tax info!</Text>
       </View>
 
       <View>
@@ -90,15 +99,20 @@ export default function UploadScreen() {
         {/* State of Purchase Field */}
         <Text style={styles.fieldTitle}>State of residence:</Text>
         <Row>
-          <TextInput
+          {/* <TextInput
           style={styles.textBox}
           placeholder="Enter State"
           value={info.state}
-          onChangeText={(newText) => handleInputChange("state", newText)} />
+          onChangeText={(newText) => handleInputChange("state", newText)} /> */}
+          <SelectList
+            setSelected={(val : string) => handleInputChange("state", val)}
+            data={data}
+            save="value"
+          />
         </Row>
 
       </View>
-      <Button title='Submit'/>
+      <Button title='Submit' onPress={handleSubmit}/>
     </AppLayout>
   );
 }

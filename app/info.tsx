@@ -2,61 +2,99 @@
 import { Text, View, StyleSheet, Image }from "react-native";
 import { Link } from "expo-router";
 import AppLayout from "@/components/AppLayout";
+import { Colors } from "@/constants/Colors";
+import { Fonts } from "@/constants/Fonts";
 
 export default function InfoScreen() {
   return (
     <AppLayout>
-      <View style={styles.centeredView}>
-        <Text style={styles.header}>General Sales Taxes 101</Text>
-      </View>
 
-      {/*Sales vs Income Tax*/}
-      <Text style={styles.title}>Sales vs. Income Tax</Text>
-      <Row>
-        <Col>
-          <Text style  = {styles.paragraph}>
+      {/*title of page*/}
+      <View style={styles.deductionContainer}>
+        <View>
+          <View style={[styles.deductionContent, styles.centeredView]}>
+              <Text style={[Fonts.header, {color: Colors.white }]}>
+                General Sales Taxes
+              </Text>
+              <Text style={[Fonts.header, {color: Colors.white }]}>
+                101
+              </Text>
+          </View>
+        </View>
+      </View>
+      
+      {/*Sales vs. Income Tax*/}
+      <View style ={{paddingTop: 15}}>
+        <Row>
+          <Text style={[Fonts.subheader, {fontWeight: 'bold'}]}>
+            Sales vs. Income Tax
+          </Text>
+        </Row>
+      </View>
+      <Col>
+        <Row>
+          <Text style  = {Fonts.body}>
             idk
           </Text>
-        </Col>
-      </Row>
+        </Row>
+      </Col>
 
       {/*Sales Tax Deduction*/}
-      <Text style={styles.title}>Sales Tax Deduction</Text>
-      <Row>
-        <Col>
-          <Text style  = {styles.paragraph}>
+      <View style ={{paddingTop: 15}}>
+        <Row>
+          <Text style={[Fonts.subheader, {fontWeight: 'bold'}]}>
+            Sales Tax Deduction
+          </Text>
+        </Row>
+      </View>
+
+      <Col>
+        <Row>
+          <Text style  = {Fonts.body}>
             idk
           </Text>
-        </Col>
-      </Row>
+        </Row>
+      </Col>
 
       {/*Items That Counts Towards Sales Tax*/}
-      <Text style = {styles.title}>Accepted Items</Text>
-      <Row>
-        <Col>
-          <Text style  = {styles.paragraph}>
+      <View style ={{paddingTop: 15}}>
+        <Row>
+          <Text style={[Fonts.subheader, {fontWeight: 'bold'}]}>
+            Accepted Items
+          </Text>
+        </Row>
+      </View>
+
+      <Col>
+        <Row>
+          <Text style  = {Fonts.body}>
             idk
           </Text>
-        </Col>
-      </Row>
+        </Row>
+      </Col>
 
       {/*Sales Tax on a Receipt*/}
-      <Text style = {styles.title}>Sales Tax on a Receipt</Text>
-      <Row>
-        <Col>
-          <Text style  = {styles.paragraph}>
+      <View style ={{paddingTop: 15}}>
+        <Row>
+          <Text style={[Fonts.subheader, {fontWeight: 'bold'}]}>
+            Sales Tax in a Receipt
+          </Text>
+        </Row>
+      </View>
+      
+      <Col>
+        <Row>
+          <Text style  = {Fonts.body}>
             idk
           </Text>
-        </Col>
-        <Col>
-          <Image
-            source={{uri:''}} //image path
-            style={styles.image}
-          />
-        </Col>
-      </Row>
-
-     
+        </Row>
+      </Col>
+      <Col>
+        <Image
+          source={{uri:''}} //image path
+          style={styles.image}
+        />
+      </Col>
 
     </AppLayout>
   );
@@ -77,34 +115,29 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: "row",
     paddingHorizontal: 16,
+    paddingTop: 10
     
   },
   "2col": {
     flex: 2,
-    borderWidth: 1,
-    margin: 10,
-    borderColor: "#d3d3d3",
- 
+    borderWidth: 3,
+    borderColor: Colors.lightBlue,
+    backgroundColor: Colors.lightBlue
   },
-
+  deductionContainer: {
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+    backgroundColor: Colors.darkBlue,
+    borderTopWidth: 7,
+    borderTopColor: Colors.darkBlue,
+  },
+  deductionContent: {
+    padding: 10,
+  },
   centeredView: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
-  },
-  header: {
-    fontSize: 24
-  },
-  title: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginTop: 16,
-    paddingHorizontal: 24
-  },
-  paragraph: {
-    fontSize: 16,
-    marginTop: 8,
-    paddingHorizontal: 40
+    alignItems: 'center'
   },
   image: {
     width: '100%',
